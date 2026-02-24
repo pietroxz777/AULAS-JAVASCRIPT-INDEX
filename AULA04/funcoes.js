@@ -232,10 +232,11 @@ function somarPares(limite){
 }
 console.log(somarPares(10));
 
-
+ 
 //============================================
 //EXERCÍCIO 17 - Contar números ímpares
 //============================================
+
 
 function contarImpares(limite){
     let contador = 0;
@@ -266,4 +267,7 @@ console.log(media(8, 6)); //7
 function quadrado(numero){
     return numero * numero;
 }
-console.log(quadrado(9)); //81
+console.log(quadrado(9)); //81,
+
+
+
