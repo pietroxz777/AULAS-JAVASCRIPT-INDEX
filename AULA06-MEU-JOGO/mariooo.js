@@ -70,8 +70,8 @@ let loopDoJogo = setInterval(function(){
 
         //troca de do mario para gamer over
     
-        mario.src = './img/game-over.png';
-        mario.style.width = '70px';
+        mario.src = './img/download.png';
+        mario.style.width = '160px';
 
         //mostrar a tela de game over
 
@@ -84,22 +84,53 @@ let loopDoJogo = setInterval(function(){
 
     }
 
+    function reiniciarJogo(){
+        //Esconder a tela de game over
+        telaFim.style.visibility = 'hiden';
+        //Reustaura o Mario
+        cano.style.animation = 'mexerCano 1.5s infinite linear';
+        cano.style.left = '';
+        //Restaura o Mario
+        mario.src = './img/29489001739580a5eb7edb15b9c3332c.gif';
+        mario.style.width = '190px';
+        mario.style.bottom = '0px';
+        mario.style.animation = ''; //remove qualquer animação fixa
+        
+        //=================================
+        //>> CRIAR UM NOVO LOOP
+        //=================================
+
+        loopdoJogo = setInterval(function(){
+            let posicaoCano = cano.offsetLeft;
+            let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px', '')
+
+            //A mesma condição de colisão anterior
+            if (posicaoCano <= 100 && posicaoCano > 0 && posicaoMario < 60){
+                console.log('==== COLISÃO NO JOGO, REINICIANDO');
+
+                cano.style.animation = 'none';
+                cano.style.left = posicaoCano + 'px';
+
+                mario.style.animation = 'none';
+                mario.style.bottom = posicaoMario + 'px';
+                mario.src = './img/game-over.png'
+                mario.style.width= '70px';
+                telaFim.style.visibility = 'visible'
+                clearInterval(loopdoJogo);
+
+            }
+        }, 10);
+
+        // FAZER O BOTÃO DE REINICIAR
+
+        botaoReiniciar.addEventListener('click', function(){
+            console.log('Botão Reiniciar Clicado!');
+            reiniciarJogo();
+
+        });
 
 
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-}, 10) //10 milissegundos
-
+})

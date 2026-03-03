@@ -12,12 +12,12 @@
 /* ================================================== */
 .jogo {
     width: 100%;            /* Ocupa toda largura */
-    height: 400px;          /* Altura fixa */
-    border-bottom: 50px solid green; /* Cria o chão */
+    height: 900px;          /* Altura fixa */
+    border-bottom: 50px solid rgb(0, 0, 0); /* Cria o chão */
     margin: 0 auto;         /* Centraliza */
     position: relative;     /* IMPORTANTE: elementos com position:absolute ficam DENTRO */
     overflow: hidden;       /* Esconde o que sai da tela */
-    background: linear-gradient(#87CEEB, #E0F6FF); /* Céu azul */
+    background: linear-gradient(#4f6f7c, #7cc5e2); /* Céu azul */
 }
 
 /* ================================================== */
@@ -36,7 +36,7 @@
 /* PERSONAGEM - Mario */
 /* ================================================== */
 .mario {
-    width: 130px;           /* Tamanho do Mario */
+    width: 230px;           /* Tamanho do Mario */
     position: absolute;     /* Posicionamento livre */
     bottom: 0;              /* Começa no chão */
 }
@@ -50,7 +50,7 @@
 /* NUVEM - Elemento de fundo */
 /* ================================================== */
 .nuvem {
-    width: 500px;           /* Nuvem bem grande */
+    width: 400px;           /* Nuvem bem grande */
     position: absolute;
     animation: mexerNuvem 20s infinite linear; /* Mais lenta (fundo) */
 }
