@@ -51,4 +51,55 @@ let loopDoJogo = setInterval(function(){
     let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px', '');
 
     console.log('cano:', posicaoCano, 'Mario:', posicaoMario);
-})
+
+    if (posicaoCano <= 100 && posicaoCano > 0 && posicaoMario < 60) {
+        console.log('=== COLISÃO DETECTADA ===');
+        console.log('Cano na posição', posicaoCano);
+        console.log('Mario na posição', posicaoMario);
+        console.log('Fim de Jogo!');
+
+        //para o cano
+
+        cano.style.animation = 'none';
+        cano.style.left = posicaoCano + 'px';
+
+        // para o mario
+
+        mario.style.animation = 'none';
+        mario.style.bottom = posicaoMario + 'px';
+
+        //troca de do mario para gamer over
+    
+        mario.src = './img/game-over.png';
+        mario.style.width = '70px';
+
+        //mostrar a tela de game over
+
+        telaFim.style.visibility = 'visible';
+
+        //parar  o loop
+
+        clearInterval(loopDoJogo);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}, 10) //10 milissegundos
+
