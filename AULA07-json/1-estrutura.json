@@ -1,0 +1,37 @@
+{
+  "cachorro": {
+    "nome": "Rex",
+    "idade": 5,
+    "raca": "Labrador",
+    "vacinado": true,
+    "peso": 25,
+    "brinquedos": ["bola", "osso", "frisbee"],
+    "dono": {
+      "nome": "João Vitor",
+      "telefone": "11 93493943"
+    }
+  
+
+  },
+  
+  "filme_favorito": {
+    "titulo": "Interestelar",
+    "ano": 2014,
+    "diretor": "Christopher Nolan",
+    "generos": ["Ficção científica", "Drama", "Aventura"]
+  },
+
+  "aluno": {
+    "nome": "João Pedro",
+    "idade": 20,
+    "notas": [8.5, 7.0, 9.2],
+    "aprovado": true
+  },
+
+  "produto": {
+    "nome": "Notebook",
+    "preco": 3500.0,
+    "quantidade": 15,
+    "disponivel": true
+  }
+}
