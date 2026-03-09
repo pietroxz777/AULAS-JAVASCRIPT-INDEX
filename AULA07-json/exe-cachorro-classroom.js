@@ -2,46 +2,25 @@
 // Missão 1 - Descobrir as Raças (Super Simples)
 //=====================================
 
-async function main() {
-  try {
-    // 1️⃣ Pegar todas as raças
-    const res = await fetch("https://dog.ceo/api/breeds/list/all");
-    const data = await res.json();
-    const racas = data.message;
+async function explorar(){
+    // 1 - buscar todas raças
+    const racas = await fetch('https://dog.ceo/api/breeds/list/all')
+    // quando a resposta chegar, convertemos para JSON
+    .then(r => r.json ());
+    // 2 - contar quantas raças existem 
+    const total = Object.keys(racas.message).length;
+    //mostrar o total das raças no controle
+    console.log(`total de raças: ${total}`)
+    // 3 - descobrir raças que tem sub-raças
+    for (const raca in racas.message){ 
+         if(racas.message[raca].length > 0){
+            console .log(`${raca} tem sub-raças`, racas.message[raca]);
+        
+         }
+    } 
 
-    // Quantas raças existem
-    const total = Object.keys(racas).length;
-    console.log("Total de raças:", total);
-
-    // Quais raças possuem sub-raças
-    console.log("\nRaças com sub-raças:");
-    for (const raca in racas) {
-      if (racas[raca].length > 0) {
-        console.log(`${raca}: ${racas[raca].join(", ")}`);
-      }
-    }
-
-    // Qual raça possui mais fotos
-    let racaMaisFotos = "";
-    let maiorQtd = 0;
-
-    for (const raca of Object.keys(racas)) {
-      const resFotos = await fetch(`https://dog.ceo/api/breed/${raca}/images`);
-      const fotos = await resFotos.json();
-      if (fotos.message.length > maiorQtd) {
-        maiorQtd = fotos.message.length;
-        racaMaisFotos = raca;
-      }
-    }
-
-    console.log("\nRaça com mais fotos:", racaMaisFotos, "-", maiorQtd, "imagens");
-
-  } catch (erro) {
-    console.error("Erro:", erro);
-  }
-}
-
-main();
+}   
+explorar();
 
 /*
 Respostas:
